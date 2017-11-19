@@ -5,6 +5,10 @@ html,body {
   padding: 0;
 }
 
+h4,h5{
+  color: white;
+}
+
 #wrapper {
   overflow-x: hidden;
 }
@@ -79,7 +83,7 @@ html,body {
 .player_remote {
   display: none;
   position: absolute;
-  color: rgb(48, 42, 42);
+  color: rgb(29, 6, 6);
   top: 15px;
   font-size: 20px;
   right: 10px;
@@ -87,6 +91,7 @@ html,body {
 
 #game_locations {
   display: none;
+  color: white;
 }
 
 #players_controls {
@@ -143,7 +148,8 @@ html,body {
 }
 
 #room_instructions {
-  font-size: 12px
+  font-size: 13px;
+  color : white;
 }
 
 #room_join_id, #room_join_name {
@@ -198,7 +204,6 @@ html,body {
   border-bottom: 1px solid #f0f0f0;
   padding: 5px 0;
   box-sizing: border-box;
-  color: white;
 }
 
 .location_config_check {
@@ -240,7 +245,6 @@ input[type="checkbox"].location_config_check{
   display: none;
   text-align: center;
   margin: 10px 0;
-  color: white;
 }
 
 .location_config_save {
@@ -306,5 +310,6 @@ input[type="checkbox"].location_config_check{
 }
 
 .button.secondary.hollow.disabled{
-  opacity: 0.7 !important;
+  opacity: 1.0 !important;
+  color: white;
 }
