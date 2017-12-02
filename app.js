@@ -2,9 +2,10 @@
 //**********
 // APP
 //**********
+var http = require('http')
 var express = require('express');
 var app = express.Router();
-var server = require('http').Server(app);
+var server = http.Server(app);
 var _ = require('lodash');
 var redis = require("redis").createClient();
 
