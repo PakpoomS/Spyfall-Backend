@@ -3,7 +3,7 @@
 // APP
 //**********
 var express = require('express');
-var app = express();
+var app = express.Router();
 var server = require('http').Server(app);
 var _ = require('lodash');
 var redis = require("redis").createClient();
@@ -199,7 +199,7 @@ io.on('connection', function (socket) {
 //  START!
 //**********
 
-server.listen(4000,'192.168.38.4', function (req,res) {
+server.listen(4000,'localhost', function (req,res) {
 
     
         var host = server.address().address;
