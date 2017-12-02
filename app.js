@@ -14,7 +14,7 @@ redis.on("error", function (err) {
 
 redis.on("connect", function () {
     console.log("Connected to Redis!");
-});
+}); 
 
 function makeid(size){
     var text = "";
@@ -46,6 +46,7 @@ app.use(favicon('./public/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(serveStatic('./public'));
+app.use('/spyfall',app);
 
 //**********
 // ROUTES
@@ -198,10 +199,11 @@ io.on('connection', function (socket) {
 //  START!
 //**********
 
-server.listen(4000, function () {
+server.listen(4000,'192.168.38.4', function (req,res) {
 
-    var host = server.address().host;
-    var port = server.address().port;
+    
+        var host = server.address().address;
+        var port = server.address().port;
 
     console.log('Spyfall listening at http://%s:%s', host, port);
 
