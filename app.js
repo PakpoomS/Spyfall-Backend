@@ -8,6 +8,8 @@ var app = express.Router();
 var server = http.Server(app);
 var _ = require('lodash');
 var redis = require("redis").createClient();
+var request = require ("request");
+var httpProxy = require('http-proxy');
 
 redis.on("error", function (err) {
     console.log("Redis Error " + err);
@@ -41,13 +43,14 @@ function genRoom(){
 //express middlewares
 var bodyParser = require('body-parser');
 var serveStatic = require('serve-static');
-var favicon = require('serve-favicon');
+var favicon = require('serve-favicon');  
 
 app.use(favicon('./public/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(serveStatic('./public'));
 app.use('/spyfall',app);
+
 
 //**********
 // ROUTES
@@ -199,10 +202,10 @@ io.on('connection', function (socket) {
 //**********
 //  START!
 //**********
+httpProxy.createProxyServer({target:'http://localhost:4000'}).listen(80);
 
 server.listen(4000,'localhost', function (req,res) {
 
-    
         var host = server.address().address;
         var port = server.address().port;
 
